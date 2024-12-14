@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="detail-container">
+            <form action="{% url 'todo_delete_view' object.pk %}" method="post">
+                {% csrf_token %}
+                <h1>Confirmation</h1>
+                <p>Are you sure you want to delete this todo?</p>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <input type="submit" value="Confirm" class="create-btn">
+                    <a href="{% url 'todo_list_view' %}" class="delete-btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

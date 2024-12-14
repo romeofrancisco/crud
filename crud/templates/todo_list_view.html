@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <header>
+            <h1>Todo List</h1>
+            <a href="{% url 'todo_create_view' %}" class="create-btn">Add Todo</a>
+        </header>
+        {% if todos %}
+            {% for todo in todos %}
+                <a href="{% url 'todo_detail_view' todo.pk %}" style="width: 100%;">
+                    <div class="todo-container">
+                        <p>{{todo.title}}</p>
+                        <span>{{todo.created}}</span>
+                    </div>                   
+                </a>
+            {% endfor %}
+        {% else %}
+            <h1 class="no-todo">No Todos Available</h1>
+        {% endif %}
+    </div>
+{% endblock content %}

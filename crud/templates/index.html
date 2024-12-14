@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>TaskTrail</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'todo_list_view' %}">
+            <h1>TaskTrail</h1>
+        </a>
+    </nav>
+    
+    <main>
+        {% block content %}
+        <!-- Workouts -->
+        {% endblock content %}
+    </main>
+
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="detail-container">
+            <div style="width: 100%;">
+                <span>
+                    <a href="{% url 'todo_list_view' %}">
+                        <img src="{% static 'images/back-icon.png' %}">
+                    </a>
+                </span>
+                <h1>Todo <img src="{% static 'images/todo-icon.png' %}">
+                <h2>{{todo.title}}</h2>
+                <p>{{todo.description}}</p>
+            </div>
+            <div class="btn-container">
+                <a href="{% url 'todo_update_view' todo.pk %}" class="edit-btn">Edit <img src="{% static 'images/edit-icon.png' %}"></a>
+                <a href="{% url 'todo_delete_view' todo.pk %}" class="delete-btn">Delete <img src="{% static 'images/delete-icon.png' %}"></a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

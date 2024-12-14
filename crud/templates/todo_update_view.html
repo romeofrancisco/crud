@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="container">
+        <form action="{% url 'todo_update_view' object.pk %}" class="detail-container" method="post">
+            {% csrf_token %}
+            <h1>Edit Todo</h1>
+            <div class="input-field">
+                {% for field in form %}                    
+                    <label>{{ field.label }}</label>
+                    {{ field }}   
+                    {{ field.errors }}            
+                {% endfor %}
+            </div>
+            <div class="btn-container">
+                <input type="submit" value="Update Todo" class="create-btn">
+                <a href="{% url 'todo_list_view' %}" class="delete-btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
